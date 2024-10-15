@@ -4,43 +4,54 @@ package com.foodscout.foodscout.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import com.foodscout.foodscout.model.Incidence;
 import com.foodscout.foodscout.model.dto.IncidenceDto;
 import com.foodscout.foodscout.services.IncidenceService;
+
+import lombok.Data;
+
 import com.foodscout.foodscout.repository.IncidendeRepository;
 
 @Service
+@Data
 public class IncidendeServiceImpl implements IncidenceService{
 
     @Autowired
     IncidendeRepository incidendeRepository;
 
-    @Override
-    public IncidenceDto getIncidencesDtoById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoById'");
-    }
+    // @Override
+    // public IncidenceDto getIncidencesDtoById(Long id) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoById'");
+    // }
 
-    @Override
-    public List<IncidenceDto> getIncidencesDtoByUser(String username) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoByUser'");
-    }
+    // @Override
+    // public List<IncidenceDto> getIncidencesDtoByUser(String username) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoByUser'");
+    // }
 
-    @Override
-    public void storeIncidende(IncidenceDto datos) {
-        Incidence incidence = new Incidence();
-        incidence.setCategory(datos.getCategory());
-        incidence.setDescription(datos.getDescription());
-        incidence.setPriority(datos.getPriority());
-        incidence.setCreatedAt(LocalDateTime.now());
-        incidence.setUserCreated(null);
+    
+    // @Override
+    // public boolean storeIncidence(IncienceDTO datos) {
+    //     Incidence incidence = new Incidence();
+    //     incidence.setCategory(datos.getCategory());
+    //     incidence.setDescription(datos.getDescription());
+    //     incidence.setPriority(datos.getPriority());
+    //     incidence.setCreatedAt(LocalDateTime.now());
+    //     incidence.setUserCreated(null);
 
-    }
-
-    @Override
+    //     Incidence response = incidenceRepository.save(incidence);
+    //     if(response == null){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+     @Override
     public void deleteIncidence(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteIncidence'");
@@ -59,9 +70,18 @@ public class IncidendeServiceImpl implements IncidenceService{
     }
 
     @Override
-    public boolean storeIncidence(String entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'storeIncidence'");
+    public void storeIncidence() {
+        Incidence incidence = new Incidence();
+        
+        incidence.setDescription(datos.getDescription());
+        // incidence.setPriority(datos.getPriority());
+        incidence.setCreatedAt(LocalDateTime.now());
+        incidence.setUserCreated(null);
+
+        CrudRepository<Incidence, Long> incidenceRepository;
+        Incidence response = incidenceRepository.save(incidence);
     }
+
+
 
 }

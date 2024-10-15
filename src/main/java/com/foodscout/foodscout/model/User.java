@@ -2,21 +2,31 @@ package com.foodscout.foodscout.model;
 
 import java.time.LocalDateTime;
 
+import com.foodscout.foodscout.model.utils.roles;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "Food_user")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "username", length = 8)
-    private String username;
+    @Column(name = "email", length = 50)
+    private String email;
     @Column(name = "password", length = 8)
     private String password;
     @Column(name = "name", length = 8)
@@ -31,83 +41,89 @@ public class User {
     private LocalDateTime deletedAt;
     @Column(name = "createdAt", length = 8)
     private LocalDateTime createdAt;
+    @Column(name = "active")
+    private boolean active;
 
-    /**
-     * 
-     */
-    public User(  String username,
-    String password,
-    String name,
-    String birthDate,
-    LocalDateTime lastUDate,
-    LocalDateTime deletedAt,
-    LocalDateTime createdAt){
+    @Enumerated(EnumType.STRING)
+    @Column(name = "rol", nullable = true)
+    private roles rol;
+
+    // /**
+    //  * 
+    //  */
+    // public User(  String username,
+    // String password,
+    // String name,
+    // String birthDate,
+    // LocalDateTime lastUDate,
+    // LocalDateTime deletedAt,
+    // LocalDateTime createdAt){
     
   
 
     
-    this.username= username;
-    this.password= password;
-    this.name= name;
-    this.birthDate= birthDate;
-    this.lastUDate= lastUDate;
-    this.deletedAt= deletedAt;
-    this.createdAt= createdAt;
+    // this.username= username;
+    // this.password= password;
+    // this.name= name;
+    // this.birthDate= birthDate;
+    // this.lastUDate= lastUDate;
+    // this.deletedAt= deletedAt;
+    // this.createdAt= createdAt;
 
     
     
 
-    }
+    // }
 
-    public Long getId() {
-        return id;
-    }
-    public String getUsername() {
-        return username;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public String getName() {
-        return name;
-    }
-    public String getBirthDate() {
-        return birthDate;
-    }
-    public LocalDateTime getLastUDate() {
-        return lastUDate;
-    }
-    public LocalDateTime getDeletedAt() {
-        return deletedAt;
-    }
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
+    // public Long getId() {
+    //     return id;
+    // }
+    // public String getUsername() {
+    //     return username;
+    // }
+    // public String getPassword() {
+    //     return password;
+    // }
+    // public String getName() {
+    //     return name;
+    // }
+    // public String getBirthDate() {
+    //     return birthDate;
+    // }
+    // public LocalDateTime getLastUDate() {
+    //     return lastUDate;
+    // }
+    // public LocalDateTime getDeletedAt() {
+    //     return deletedAt;
+    // }
+    // public LocalDateTime getCreatedAt() {
+    //     return createdAt;
+    // }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-    public void setLastUDate(LocalDateTime lastUDate) {
-        this.lastUDate = lastUDate;
-    }
-    public void setDeletedAt(LocalDateTime deletedAt) {
-        this.deletedAt = deletedAt;
-    }
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    // public void setId(Long id) {
+    //     this.id = id;
+    // }
+    // public void setUsername(String username) {
+    //     this.username = username;
+    // }
+    // public void setPassword(String password) {
+    //     this.password = password;
+    // }
+    // public void setName(String name) {
+    //     this.name = name;
+    // }
+    // public void setBirthDate(String birthDate) {
+    //     this.birthDate = birthDate;
+    // }
+    // public void setLastUDate(LocalDateTime lastUDate) {
+    //     this.lastUDate = lastUDate;
+    // }
+    // public void setDeletedAt(LocalDateTime deletedAt) {
+    //     this.deletedAt = deletedAt;
+    // }
+    // public void setCreatedAt(LocalDateTime createdAt) {
+    //     this.createdAt = createdAt;
+    // }
  
     
 }
