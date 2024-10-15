@@ -11,7 +11,7 @@ public interface IncidenceService {
     IncidenceDto getIncidencesById(Long id);
     List<IncidenceDto> getIncidencesByUserName(String username);
  
-    boolean storeIncidence(String entity);
+    boolean storeIncidence();
     //la clase q extienda de esta interfaz, va tener que cargar estos metodos q voy a definir.
  
     void deleteIncidence(Long id);
