@@ -23,22 +23,14 @@ public class IncidenceController {
     @Autowired
     IncidenceService incidenceService;
 
-    @PostMapping("incidence")
-    public ResponseEntity<Entity>addIncidence(@RequestBody IncidenceDto entity) {
+    @PostMapping("/incidence")
+    public ResponseEntity<Integer> storeIncidence(@RequestBody IncidenceDto entity) {
         //TODO: process POST request
-        
-        return new ResponseEntity<Integer>(1, HttpStatus.ACCEPTED);
-
-    }
-    
-
-    @PostMapping("/incidence/:id")
-    public ResponseEntity<Integer> addIncidenceDetail(@PathParam(value = "id") Integer id){
         try {
-            incidenceService.storeIncidence(id);
-            return new ResponseEntity<Integer>(1,HttpStatus.ACCEPTED);
+            incidenceService.storeIncidence(entity);
+            return new ResponseEntity<>(null);
         } catch (Exception e) {
-            return new ResponseEntity<Integer>(0, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(null);
         }
     }
     

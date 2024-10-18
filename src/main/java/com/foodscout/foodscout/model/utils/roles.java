@@ -1,7 +1,7 @@
 package com.foodscout.foodscout.model.utils;
 
-public enum roles {
-    ADIMN,
-    EXEXUTOR,
+public enum Roles {
+    ADMIN,
+    EXECUTOR,
     OPERATOR
 }
