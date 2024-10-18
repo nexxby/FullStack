@@ -14,53 +14,21 @@ import com.foodscout.foodscout.services.IncidenceService;
 import lombok.Data;
 
 import com.foodscout.foodscout.repository.IncidendeRepository;
+import com.foodscout.foodscout.repository.UserRepository;
 
 @Service
-@Data
 public class IncidendeServiceImpl implements IncidenceService{
 
     @Autowired
     IncidendeRepository incidendeRepository;
 
-    // @Override
-    // public IncidenceDto getIncidencesDtoById(Long id) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoById'");
-    // }
-
-    // @Override
-    // public List<IncidenceDto> getIncidencesDtoByUser(String username) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'getIncidencesDtoByUser'");
-    // }
-
-    
-    // @Override
-    // public boolean storeIncidence(IncienceDTO datos) {
-    //     Incidence incidence = new Incidence();
-    //     incidence.setCategory(datos.getCategory());
-    //     incidence.setDescription(datos.getDescription());
-    //     incidence.setPriority(datos.getPriority());
-    //     incidence.setCreatedAt(LocalDateTime.now());
-    //     incidence.setUserCreated(null);
-
-    //     Incidence response = incidenceRepository.save(incidence);
-    //     if(response == null){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
-     @Override
-    public void deleteIncidence(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteIncidence'");
-    }
+    @Autowired
+    UserRepository userRepository;
 
     @Override
-    public IncidenceDto getIncidencesById(Long id) {
+    public List<Incidence> getAllInicidences() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getIncidencesById'");
+        throw new UnsupportedOperationException("Unimplemented method 'getAllInicidences'");
     }
 
     @Override
@@ -70,18 +38,18 @@ public class IncidendeServiceImpl implements IncidenceService{
     }
 
     @Override
-    public void storeIncidence() {
-        Incidence incidence = new Incidence();
-        
-        incidence.setDescription(datos.getDescription());
-        // incidence.setPriority(datos.getPriority());
-        incidence.setCreatedAt(LocalDateTime.now());
-        incidence.setUserCreated(null);
-
-        CrudRepository<Incidence, Long> incidenceRepository;
-        Incidence response = incidenceRepository.save(incidence);
+    public void storeIncidence(IncidenceDto datos) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'storeIncidence'");
     }
 
+    @Override
+    public void deleteIncidence(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteIncidence'");
+    }
+
+   
 
 
 }
